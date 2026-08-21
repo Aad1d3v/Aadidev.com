@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://aadidev.com/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <image:image>
+      <image:loc>https://aadidev.com/assets/images/aadidev-gpt-screenshot.png</image:loc>
+      <image:title>AadidevGPT chat interface</image:title>
+      <image:caption>AadidevGPT welcome screen with quick action buttons</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://aadidev.com/assets/images/impaircheck-screenshot.png</image:loc>
+      <image:title>ImpairCheck dashboard</image:title>
+      <image:caption>ImpairCheck AI-assisted impairment screening dashboard</image:caption>
+    </image:image>
+  </url>
+</urlset>

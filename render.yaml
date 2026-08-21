@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: aadidev-portfolio
+    runtime: static
+    buildCommand: echo "no build needed"
+    staticPublishPath: .
