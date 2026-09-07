@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a demo — Aadidev, Student Developer</title>
+  <meta name="description" content="Book a free demo of one of Aadidev's projects — a recorded walkthrough or a chat on SMS, Reddit, X, or Discord." />
+  <link rel="canonical" href="https://aadidev.com/book-demo.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aadidev" />
+  <meta property="og:title" content="Book a demo — Aadidev" />
+  <meta property="og:description" content="Book a free demo of one of Aadidev's projects — a recorded walkthrough or a chat on SMS, Reddit, X, or Discord." />
+  <meta property="og:url" content="https://aadidev.com/book-demo.html" />
+  <meta property="og:image" content="https://aadidev.com/assets/images/aadidev-gpt-screenshot.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Book a demo — Aadidev" />
+  <meta name="twitter:description" content="Book a free demo of one of Aadidev's projects — a recorded walkthrough or a chat on SMS, Reddit, X, or Discord." />
+  <meta name="twitter:image" content="https://aadidev.com/assets/images/aadidev-gpt-screenshot.png" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.svg" sizes="any" />
+  <meta name="theme-color" content="#55632e" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=3" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#top" aria-label="Aadidev home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-name">Aadi<span>dev</span></span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html#about">About</a>
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#contact">Get in touch</a>
+        <a class="btn btn-outline" href="book-demo.html" aria-current="page">Book a demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="booking-hero">
+      <div class="container">
+        <p class="eyebrow">Book a demo</p>
+        <h1 class="booking-title">Pick a project,<br /><em>see it in action.</em></h1>
+        <p class="booking-lead">
+          Choose one of my projects and I'll send you a recorded walkthrough, or get in touch on
+          the platform that works best for you — SMS, Reddit, X, or Discord.
+        </p>
+      </div>
+    </section>
+
+    <section class="section booking">
+      <div class="container booking-inner">
+        <form class="booking-form" id="booking-form">
+          <fieldset class="booking-fieldset">
+            <legend class="booking-legend">1. Which project?</legend>
+            <div class="project-picker" id="project-picker">
+              <!-- Project cards rendered by js/book-demo.js -->
+            </div>
+          </fieldset>
+
+          <div class="booking-grid">
+            <div class="field">
+              <label class="field-label" for="name">Your name</label>
+              <input class="field-input" type="text" id="name" name="name" required autocomplete="name" placeholder="Jamie" />
+            </div>
+            <div class="field">
+              <label class="field-label" for="email">Your email</label>
+              <input class="field-input" type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <fieldset class="booking-fieldset">
+            <legend class="booking-legend">2. How do you want the demo?</legend>
+            <div class="channel-picker" id="channel-picker">
+              <!-- Channel pills rendered by js/book-demo.js -->
+            </div>
+          </fieldset>
+
+          <div class="booking-grid">
+            <div class="field">
+              <label class="field-label" for="best-time">Best time to reach you <span class="field-optional">(optional)</span></label>
+              <input class="field-input" type="text" id="best-time" name="best-time" placeholder="e.g. Tuesday afternoons after 4 PM MT" />
+            </div>
+            <div class="field">
+              <label class="field-label" for="notes">Anything else? <span class="field-optional">(optional)</span></label>
+              <input class="field-input" type="text" id="notes" name="notes" placeholder="What you're curious about, your use case…" />
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg booking-submit" type="submit">
+            Request a demo <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <div class="booking-ok" id="booking-ok" hidden>
+          <p class="booking-ok-title">Request ready to send! 📬</p>
+          <p>
+            Your email app should have opened with your request pre-filled — just hit send. If nothing
+            opened, email me directly at
+            <a href="mailto:aadidevprasanth12@yahoo.com">aadidevprasanth12@yahoo.com</a> and I'll get
+            back to you on your preferred channel.
+          </p>
+        </div>
+
+        <aside class="booking-aside">
+          <h2 class="booking-aside-title">What happens next?</h2>
+          <ol class="booking-steps">
+            <li>You hit send in your email app — the message is already drafted for you.</li>
+            <li>I reply on your preferred channel (SMS, Reddit, X, or Discord) with a recorded walkthrough or answers to your questions.</li>
+            <li>No pressure — just a closer look at what I build and how it could work for you.</li>
+          </ol>
+          <p class="booking-aside-note">
+            Prefer to skip the form? Email
+            <a href="mailto:aadidevprasanth12@yahoo.com">aadidevprasanth12@yahoo.com</a> directly.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Aadidev. Built with ❤️ in Calgary.</p>
+      <nav class="footer-nav">
+        <a href="index.html#top">Top</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="book-demo.html" aria-current="page">Book a demo</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Bump the ?v= number whenever you change styles.css or book-demo.js to force browsers to fetch the fresh copy -->
+  <script src="js/book-demo.js?v=3"></script>
+</body>
+</html>

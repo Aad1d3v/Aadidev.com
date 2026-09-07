@@ -1,0 +1,10 @@
+# Freebuff preview infrastructure
+.freebuff/
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/

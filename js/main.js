@@ -42,6 +42,71 @@ const IMPAIRCHECK = {
   github: "https://github.com/Aad1d3v/ImpairCheck",
 };
 
+const ATMOS = {
+  title: "Atmos",
+  icon: "☁",
+  status: "live",
+  problem:
+    "Weather apps usually show a forecast, but not what it means for you. Atmos is a weather intelligence dashboard that combines live forecast and air-quality data with an Ask AI assistant, so you can get real answers about the weather anywhere in the world.",
+  role:
+    "I designed and built the full stack: the Node.js server that talks to Groq and Geoapify, and the responsive HTML, CSS, and JavaScript dashboard with worldwide search, geolocation, and an interactive map.",
+  stack: ["HTML/CSS", "JavaScript", "Node.js", "AI/ML", "Groq API"],
+  challenges:
+    "Keeping every API key on the server and proxying all weather, AI, and map requests server-side, so no credential ever reaches the browser, was the biggest challenge. Building the Ask AI assistant and the Pro subscription flow came next.",
+  learned:
+    "How to build a privacy-first full-stack app, integrate AI generation and geocoding APIs, and ship a subscription feature with server-side code validation.",
+  url: "https://atmos-xk8b.onrender.com",
+  github: "https://github.com/Aad1d3v/Atmos",
+};
+
+const ZELERO = {
+  title: "Zelero",
+  icon: "◈",
+  status: "live",
+  problem:
+    "Writing, debugging, and analyzing code usually means juggling several tools: an editor here, a debugger there, a search for error codes, a converter somewhere else. Zelero is an AI-integrated coding helper that brings all of that into one workspace where you can write, debug, and analyze code and error codes with the Aadi-04 model.",
+  role:
+    "I designed and built the full stack: the AI backend that powers the Aadi-04 assistant, and the frontend with a built-in code editor that formats and highlights pasted code, a chat interface, and tools for explaining code, fixing bugs, analyzing errors, and converting between languages.",
+  stack: ["HTML/CSS", "JavaScript", "Python", "AI/ML", "Groq API"],
+  challenges:
+    "Making pasted code format and highlight automatically in the editor, routing different intents like explaining, debugging, error analysis, and language conversion through one chat, and keeping AI responses useful and fast were the biggest challenges.",
+  learned:
+    "How to build a multi-purpose AI coding tool, design a clean three-panel developer workspace, and shape code-specific prompts so the model gives clear, well-formatted answers.",
+  url: "https://zelero.onrender.com/",
+};
+
+const SPACESIM = {
+  title: "3-D Space Sim",
+  icon: "🪐",
+  status: "live",
+  problem:
+    "Space is usually something you look at in pictures or videos, not something you explore. The 3-D Space Sim is an interactive, scientifically-grounded model of the solar system — real orbital mechanics, real NASA surface imagery, a time machine, and a sandbox for (very dramatic) destruction.",
+  role:
+    "I designed and built everything in a single self-contained HTML file: the 3-D scene, the orbital mechanics engine, the UI, and even the synthesized sound effects. No npm, no build step, no server required to develop.",
+  stack: ["JavaScript", "Three.js", "WebGL", "Physics"],
+  challenges:
+    "Making the physics real was the hardest part — solving Kepler's equation for every planet, applying true axial tilts and rotation rates, and bundling genuine NASA surface textures so the whole system stays accurate — while keeping it smooth enough to fly around.",
+  learned:
+    "How to implement real orbital mechanics (Kepler's equation and the vis-viva equation), build a 3-D scene with Three.js, and ship a polished interactive experience in a single file.",
+  url: "https://aadidev-s-3-d-space-sim.onrender.com",
+};
+
+const NUMERA = {
+  title: "Numera",
+  icon: "🧮",
+  status: "live",
+  problem:
+    "Everyday arithmetic, scientific functions, graphing, programmer calculations, and unit conversion usually live in five different tools — and none of them can read a math problem straight off a photo. Numera is a multi-mode calculator that puts all of it in one beautiful place, plus Photo AI: snap a picture of a math problem and get a step-by-step solution.",
+  role:
+    "I designed and built the full stack: the React + TypeScript frontend with a hardened mathjs expression engine and a hand-rolled HTML5 canvas graphing plotter, and a tiny Express server that keeps the Groq vision API key server-side.",
+  stack: ["React", "TypeScript", "Express", "AI/ML", "mathjs"],
+  challenges:
+    "Hand-rolling the canvas graphing plotter without a charting library, hardening the evaluator so percent behaves like a desk calculator (50+10% → 55), and wiring Photo AI end-to-end so a vision model returns the expression, the answer, and the steps were the biggest challenges.",
+  learned:
+    "How to build a keyboard-first, theme-ready React app across six modes, keep API secrets server-side behind a tiny proxy, and ship everything in a single multi-stage Docker image.",
+  url: "https://numera-o77o.onrender.com/",
+};
+
 const PROJECTS = [
   {
     title: "Hirely AI",
@@ -143,64 +208,126 @@ if (featuredEl) {
   `;
 }
 
-/* ---------- Render ImpairCheck highlight (big, in Projects) ---------- */
-const highlightEl = document.getElementById("project-highlight");
-if (highlightEl) {
-  highlightEl.innerHTML = `
-    <div class="featured-inner">
-      <div class="featured-content">
-        <div class="featured-header">
-          <span class="featured-icon" aria-hidden="true">${IMPAIRCHECK.icon}</span>
-          <span class="status-badge status-${IMPAIRCHECK.status}">${IMPAIRCHECK.status}</span>
-        </div>
-        <h2 class="featured-title">${IMPAIRCHECK.title}</h2>
+/* ---------- Render highlight cards (big, in Projects) ---------- */
+function highlightCard(project, screenshot) {
+  return `
+    <div class="featured project-highlight">
+      <div class="featured-inner">
+        <div class="featured-content">
+          <div class="featured-header">
+            <span class="featured-icon" aria-hidden="true">${project.icon}</span>
+            <span class="status-badge status-${project.status}">${project.status}</span>
+          </div>
+          <h2 class="featured-title">${project.title}</h2>
 
-        <div class="featured-detail">
-          <h3 class="featured-label">The problem</h3>
-          <p class="featured-text">${IMPAIRCHECK.problem}</p>
-        </div>
+          <div class="featured-detail">
+            <h3 class="featured-label">The problem</h3>
+            <p class="featured-text">${project.problem}</p>
+          </div>
 
-        <div class="featured-detail">
-          <h3 class="featured-label">My role</h3>
-          <p class="featured-text">${IMPAIRCHECK.role}</p>
-        </div>
+          <div class="featured-detail">
+            <h3 class="featured-label">My role</h3>
+            <p class="featured-text">${project.role}</p>
+          </div>
 
-        <div class="featured-detail">
-          <h3 class="featured-label">Tech stack</h3>
-          <div class="featured-stack">
-            ${IMPAIRCHECK.stack.map((s) => `<span class="tag">${s}</span>`).join("")}
+          <div class="featured-detail">
+            <h3 class="featured-label">Tech stack</h3>
+            <div class="featured-stack">
+              ${project.stack.map((s) => `<span class="tag">${s}</span>`).join("")}
+            </div>
+          </div>
+
+          <div class="featured-detail">
+            <h3 class="featured-label">Major challenges</h3>
+            <p class="featured-text">${project.challenges}</p>
+          </div>
+
+          <div class="featured-detail">
+            <h3 class="featured-label">What I learned</h3>
+            <p class="featured-text">${project.learned}</p>
+          </div>
+
+          <div class="featured-actions">
+            <a class="btn btn-primary" href="${project.url}" target="_blank" rel="noopener noreferrer">
+              View project <span aria-hidden="true">→</span>
+            </a>
+            ${project.github ? `<a class="btn btn-outline" href="${project.github}" target="_blank" rel="noopener noreferrer">
+              View source <span aria-hidden="true">↗</span>
+            </a>` : ""}
           </div>
         </div>
 
-        <div class="featured-detail">
-          <h3 class="featured-label">Major challenges</h3>
-          <p class="featured-text">${IMPAIRCHECK.challenges}</p>
-        </div>
-
-        <div class="featured-detail">
-          <h3 class="featured-label">What I learned</h3>
-          <p class="featured-text">${IMPAIRCHECK.learned}</p>
-        </div>
-
-        <div class="featured-actions">
-          <a class="btn btn-primary" href="${IMPAIRCHECK.url}" target="_blank" rel="noopener noreferrer">
-            View project <span aria-hidden="true">→</span>
-          </a>
-          <a class="btn btn-outline" href="${IMPAIRCHECK.github}" target="_blank" rel="noopener noreferrer">
-            View source <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="featured-visual">
-        <div class="featured-screenshot">
-          <img src="assets/images/impaircheck-screenshot.png" alt="ImpairCheck dashboard with Voice, Face, and Reaction screening tests" />
-          <p class="screenshot-caption">Voice, face, and reaction screening in one dashboard.</p>
+        <div class="featured-visual">
+          <div class="featured-screenshot">
+            <img src="${screenshot.src}" alt="${screenshot.alt}" class="featured-img" />
+            <p class="screenshot-caption">${screenshot.caption}</p>
+          </div>
         </div>
       </div>
     </div>
   `;
 }
+
+const highlightEl = document.getElementById("project-highlight");
+if (highlightEl) {
+  highlightEl.innerHTML =
+    highlightCard(IMPAIRCHECK, {
+      src: "assets/images/impaircheck-screenshot.png",
+      alt: "ImpairCheck dashboard with Voice, Face, and Reaction screening tests",
+      caption: "Voice, face, and reaction screening in one dashboard.",
+    }) +
+    highlightCard(ZELERO, {
+      src: "assets/images/zelero-screenshot.png",
+      alt: "Zelero AI coding assistant showing the Ask AI view with code editor and chat",
+      caption: "Write, debug, and analyze code and error codes in one AI-powered workspace.",
+    }) +
+    highlightCard(ATMOS, {
+      src: "assets/images/atmos-screenshot.png",
+      alt: "Atmos weather dashboard showing live forecast and air quality",
+      caption: "Live forecast, air quality, and Ask AI in one dashboard.",
+    }) +
+    highlightCard(SPACESIM, {
+      src: "assets/images/spacesim-screenshot.png",
+      alt: "3-D Space Sim showing the Sun, planets, and orbit paths in a live solar system",
+      caption: "Real orbits, real time, and unlimited destruction in your browser.",
+    }) +
+    highlightCard(NUMERA, {
+      src: "assets/images/numera-screenshot.png",
+      alt: "Numera calculator showing multiple modes and a photo-to-solution AI flow",
+      caption: "Every calculator you need in one place — plus Photo AI.",
+    });
+}
+
+/* ---------- Render demo panel project chips (Contact section) ---------- */
+const demoPanelEl = document.getElementById("demo-panel-projects");
+if (demoPanelEl) {
+  const demoProjects = [FEATURED, IMPAIRCHECK, ATMOS, ZELERO, SPACESIM, NUMERA, ...PROJECTS];
+  demoPanelEl.innerHTML = demoProjects
+    .map(
+      (project) =>
+        `<a class="demo-chip" href="book-demo.html?project=${encodeURIComponent(
+          project.title
+        )}" aria-label="Book a demo of ${project.title}">
+          <span aria-hidden="true">${project.icon}</span>${project.title}
+        </a>`
+    )
+    .join("");
+}
+
+/* Show a placeholder if a screenshot hasn't been added yet */
+["atmos-screenshot", "zelero-screenshot", "numera-screenshot"].forEach((name) => {
+  const shot = document.querySelector(`#project-highlight img[src*='${name}']`);
+  if (shot) {
+    shot.addEventListener("error", () => {
+      const box = shot.closest(".featured-screenshot");
+      if (box) {
+        const caption = box.querySelector(".screenshot-caption");
+        box.innerHTML = `<p class="screenshot-placeholder">Screenshot coming soon</p>`;
+        if (caption) box.appendChild(caption);
+      }
+    });
+  }
+});
 
 /* ---------- Render project cards ---------- */
 const grid = document.getElementById("project-grid");
